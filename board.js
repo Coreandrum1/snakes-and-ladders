@@ -1,4 +1,4 @@
-
+//Board class for board object that will contain player objects
 class Board{
 	constructor(){
 		this.box=generateBoard(20,8)
@@ -18,7 +18,13 @@ class Board{
 	}
 }
 
-
+/*a function that allows a board to be generated randomly
+	*ladders will be generated until box number 90
+	*snakes will be generated after box number 10
+	*snakes and ladders cant lead to other snake or a ladder
+	*board array have a 100 length
+	*Function allows to add different amount of ladders and snakes 
+*/
 let generateBoard = (snk, ladd) => {
 	let board = []
 	for (let i = 0; i < 100; i++) {

@@ -1,17 +1,20 @@
-
-let movement = (p, brd) => {
+// recursive function 
+let turn = (p, brd) => { 
 	console.log("-----------------------------------------------------------")
-	brd.player[p].move(brd)
+	brd.player[p].move(brd)		//takes the current value of board.box array
 
-	if (p < brd.player.length-1 && brd.player[p].getPosition() < brd.box.length-1) {
+	if (p < brd.player.length-1 && brd.player[p].getPosition() < brd.box.length-1) { // if the conditions are meet, this will call the function but with the next number of the board.box array
 		p++
-		movement(p, brd)
+		turn(p, brd)
 	}
-	else if(p >= brd.player.length-1 && brd.player[p].getPosition() < brd.box.length-1){
+	else if(p >= brd.player.length-1 && brd.player[p].getPosition() < brd.box.length-1){ // if the conditions are meet, this means all player already had their turn and need no start the turn cycle again
 		p = 0
-		movement(p, brd)
+		turn(p, brd)
 	}
 }
+
+
+//objects initialization
 
 let brd = new Board()
 let p1 = new Player(1)
@@ -28,4 +31,4 @@ brd.setPlayer(p3)
 
 
 console.log(brd.box)
-movement(0, brd)
+turn(0, brd)
